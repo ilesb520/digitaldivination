@@ -1,23 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bgOrange">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <script src = "main.js"></script>
 </head>
 <body>
-        <img id="gecImage" src="assets/illustrated/Machine.png" width="620px" height="980px" alt="illustrated gecaphon machine">
+    <h1 id="quarterDes">
+        Drag the token to the machine for a prize!
+    </h1>
+
+    <img id="machine" class="droppable" src="assets/illustrated/Machine_full_web.png" width="540px" height="900px" alt="illustrated gecaphon machine">
+
+    <img id="quarter" src="assets/illustrated/Free_Quarter.png" width="106px" height="166px" alt="gochagachi token"> 
+
+    <script>
+    let currentDroppable = null;
+    quarter.onmousedown = function(event){
+
+
+    let shiftX = event.clientX - quarter.getBoundingClientRect().left;
+      let shiftY = event.clientY - quarter.getBoundingClientRect().top;
+      // (1) prepare to moving: make absolute and on top by z-index
+  quarter.style.position = 'absolute';
+  quarter.style.zIndex = 1000;
+
+  // move it out of any current parents directly into body
+  // to make it positioned relative to the body
+  document.body.append(quarter);
+
+  // move our absolutely positioned ball under the pointer
+  moveAt(event.pageX, event.pageY);
+
+  // centers the ball at (pageX, pageY) coordinates
+  function moveAt(pageX, pageY) {
+    quarter.style.left = pageX - shiftX + 'px';
+    quarter.style.top = pageY - shiftY + 'px';
+  }
+
+  function onMouseMove(event) {
+    moveAt(event.pageX, event.pageY);
+    quarter.hidden = true; 
+    let elemBelow = document.elementFromPoint(event.clientX, event.clientY);
+    quarter.hidden = false; 
+    if(!elemBelow) return; 
+
+    let droppableBelow = elemBelow.closest('.droppable');
+    if(currentDroppable != droppableBelow){
+        if(currentDroppable){
+            leaveDroppable(currentDroppable);
+        }
+        currentDroppable = droppableBelow; 
+        if(currentDroppable){
+            enterDroppable(currentDroppable);
+        }
+    }
+  }
+
+  // (2) move the ball on mousemove
+  document.addEventListener('mousemove', onMouseMove);
+
+  // (3) drop the ball, remove unneeded handlers
+  quarter.onmouseup = function() {
+    document.removeEventListener('mousemove', onMouseMove);
+    quarter.onmouseup = null;
+  };
+
+};  
+
+function enterDroppable(elem){
+    window.location.href="random_combos.html";
+} 
+
+function leaveDroppable(elem){
+    elem.style.background= '';
+}
+
+quarter.ondragstart = function(){
+    return false; 
+}    
+    </script>
        
-
-    <div id="rogue">
-        <img id="freeQuarter" src="assets/illustrated/Free_Quarter.png" width="103px" height="148px" alt="free quarter"> 
-     </div>
-
-     <script>
-        getElementById("rogue").getElementsByTagName("img").src="Free_Quarter.png"; 
-     </script>
 </body>
 </html>

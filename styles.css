@@ -3,22 +3,80 @@
 }
 
 #startPage{
- display: block;
- margin-left: auto;
- margin-right: auto;
- margin-top: -250px; 
+	margin-top: -300px;
+	margin-left: 450px; 
+
 }
 
 	#startButton{
- 		background:khaki;
- 		text-align: center; 
- 		font-size: 150px; 
- 		color: white;
- 		border-radius: 20px;
- 		margin-left: 700px;
- 		margin-top: -500px;
- 		transition: 1.5s; 
+		display: block;
+		margin-left: auto; 
+		margin-right: auto;
+		margin-top: -400px;
+		text-align: center;
+		border-radius: 20px;
+		font-size: 100px;
+		background: khaki;
+		color: white;
+		transition: 1s;
  	}
  	#startButton:hover{
  		background: gold;
  	}
+
+ 	#header{
+ 		font-family: verdana;
+ 		font-size: 80px;
+ 		color: gold;
+ 		text-align: center;
+ 	}
+
+ 	#des{
+ 		font-family: verdana;
+ 		font-size: 50px;
+ 		color: gold;
+ 		text-align: center;
+ 	}
+
+ 	#quarter{
+ 		cursor: pointer;
+ 		margin-bottom: 700px;
+ 		padding-left: 150px;
+ 	}
+
+ 	#machine{
+ 		cursor: pointer;
+ 		margin-left: 600px; 
+ 	}
+
+ 	#quarterDes{
+ 		font-family: verdana;
+ 		margin-left: 130px; 
+ 		font-size: 64px;
+ 		color: khaki;
+ 		transition: 1s;
+ 	}
+
+#myImg{
+	margin-left: 450px;
+}
+
+.bgOrange{
+	background-color: #FCC891; 
+}
+
+#playAgain{
+			display: block;
+		margin-left: auto; 
+		margin-right: auto;
+		text-align: center;
+		border-radius: 20px;
+		font-size: 100px;
+		background: khaki;
+		color: white;
+		transition: 1s;
+ 	}
+ 	#playAgain:hover{
+ 		background: gold;
+ 	}
+}

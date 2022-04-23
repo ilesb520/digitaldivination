@@ -1,14 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bgOrange">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
     <script src = "main.js"></script>
 </head>
-<body>
+<body >
 
+	<img id="myImg" src="" width="820px" height="940px">
+	
+	<button id="playAgain" onclick="window.location.href='drag_quarter.html'">Play again</button>
 </body>
 </html>
+
+<script type="text/javascript">
+	
+	var images =[], 
+	index = 0; 
+	images[0] = "assets/gifs/PinkCapsule_Toy1(new).gif";
+	images[1] = "assets/gifs/PinkCapsule_Toy2(new).gif";
+	images[2] = "assets/gifs/PinkCapsule_Toy3(new).gif";
+	images[3] = "assets/gifs/PinkCapsule_Toy4(new).gif";
+	images[4] = "assets/gifs/PinkCapsule_Toy5(new).gif";
+	images[5] = "assets/gifs/PurpleCapsule_Toy1.gif";
+	images[6] = "assets/gifs/PurpleCapsule_Toy2.gif";
+	images[7] = "assets/gifs/PurpleCapsule_Toy3.gif";
+	images[8] = "assets/gifs/PurpleCapsule_Toy4.gif";
+	images[9] = "assets/gifs/PurpleCapsule_Toy5.gif";
+	images[10] = "assets/gifs/BlueCapsule_Toy1.gif";
+	images[11] = "assets/gifs/BlueCapsule_Toy2.gif";
+	images[12] = "assets/gifs/BlueCapsule_Toy3.gif";
+	images[13] = "assets/gifs/BlueCapsule_Toy4.gif";
+	images[14] = "assets/gifs/BlueCapsule_Toy5.gif";
+
+	index = Math.floor(Math.random() * images.length);
+
+	document.querySelector("#myImg").src=(images[index]);
+</script>
+
